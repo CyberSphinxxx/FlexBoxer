@@ -1,5 +1,5 @@
 const boxContainer = document.getElementById('boxContainer');
-let boxCount = 10;
+let boxCount = 5;
 
 function addBox() {
     boxCount++;
