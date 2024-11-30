@@ -4,6 +4,7 @@ const boxCountDisplay = document.getElementById('boxCountDisplay');
 const addBoxButton = document.getElementById('addBoxButton');
 const removeBoxButton = document.getElementById('removeBoxButton');
 const removeAllBoxesButton = document.getElementById('removeAllBoxesButton');
+const shuffleColorsButton = document.getElementById('shuffleColorsButton');
 
 // Initialize box count based on existing boxes in DOM
 let boxCount = boxContainer.children.length;
@@ -44,9 +45,19 @@ function getRandomColor() {
     return `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
 }
 
+// Function to shuffle the colors of all boxes
+function shuffleColors() {
+    const boxes = boxContainer.getElementsByClassName('box');
+    for (let i = 0; i < boxes.length; i++) {
+        boxes[i].style.backgroundColor = getRandomColor();
+    }
+}
+
 // Attach event listeners to buttons
 addBoxButton.addEventListener('click', addBox);
 removeBoxButton.addEventListener('click', removeBox);
+removeAllBoxesButton.addEventListener('click', removeAllBoxes);
+shuffleColorsButton.addEventListener('click', shuffleColors);
 
 // Initial setup
 updateBoxCountDisplay();
@@ -57,6 +68,3 @@ function removeAllBoxes() {
     boxCount = 0; // Reset box count
     updateBoxCountDisplay(); // Update the counter display
 }
-
-// Attach event listener to the "Remove All Boxes" button
-removeAllBoxesButton.addEventListener('click', removeAllBoxes);
