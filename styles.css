@@ -120,17 +120,3 @@ footer {
     scrollbar-width: thin;
     scrollbar-color: #007BFF #141930;
 }
-
-.scrollable-container::-webkit-scrollbar {
-    width: 8px;
-}
-
-.scrollable-container::-webkit-scrollbar-track {
-    background: #141930;
-}
-
-.scrollable-container::-webkit-scrollbar-thumb {
-    background-color: #007BFF;
-    border-radius: 8px;
-    border: 2px solid transparent;
-}
