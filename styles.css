@@ -112,6 +112,7 @@ footer {
 .btn:active {
     transform: translateY(0);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #0012d8, #009b81);
 }
 
 .scrollable-container {
