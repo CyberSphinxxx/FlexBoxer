@@ -3,6 +3,7 @@ const boxContainer = document.getElementById('boxContainer');
 const boxCountDisplay = document.getElementById('boxCountDisplay');
 const addBoxButton = document.getElementById('addBoxButton');
 const removeBoxButton = document.getElementById('removeBoxButton');
+const removeAllBoxesButton = document.getElementById('removeAllBoxesButton');
 
 // Initialize box count based on existing boxes in DOM
 let boxCount = boxContainer.children.length;
@@ -49,3 +50,13 @@ removeBoxButton.addEventListener('click', removeBox);
 
 // Initial setup
 updateBoxCountDisplay();
+
+// Function to remove all boxes
+function removeAllBoxes() {
+    boxContainer.innerHTML = ''; // Clear all child elements
+    boxCount = 0; // Reset box count
+    updateBoxCountDisplay(); // Update the counter display
+}
+
+// Attach event listener to the "Remove All Boxes" button
+removeAllBoxesButton.addEventListener('click', removeAllBoxes);
