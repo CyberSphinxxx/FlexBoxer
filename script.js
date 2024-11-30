@@ -1,25 +1,30 @@
+// DOM References
 const boxContainer = document.getElementById('boxContainer');
 const boxCountDisplay = document.getElementById('boxCountDisplay');
+const addBoxButton = document.getElementById('addBoxButton');
+const removeBoxButton = document.getElementById('removeBoxButton');
 
-// Initialize box count based on current number of child elements
-function initializeBoxCount() {
-    return boxContainer.children.length;
-}
+// Initialize box count based on existing boxes in DOM
+let boxCount = boxContainer.children.length;
 
-let boxCount = initializeBoxCount();
-
-// Update the displayed count
+// Updates the displayed box count
 function updateBoxCountDisplay() {
     boxCountDisplay.textContent = `Total Boxes: ${boxCount}`;
+}
+
+// Creates a new box element
+function createBox() {
+    const newBox = document.createElement('div');
+    newBox.className = 'box';
+    newBox.textContent = `Box ${boxCount}`;
+    newBox.style.backgroundColor = getRandomColor();
+    return newBox;
 }
 
 // Add a new box
 function addBox() {
     boxCount++;
-    const newBox = document.createElement('div');
-    newBox.className = `box box${boxCount}`;
-    newBox.textContent = `Box ${boxCount}`;
-    newBox.style.backgroundColor = getRandomColor();
+    const newBox = createBox();
     boxContainer.appendChild(newBox);
     updateBoxCountDisplay();
 }
@@ -33,10 +38,14 @@ function removeBox() {
     }
 }
 
-// Generate a random color
+// Generates a random color
 function getRandomColor() {
-    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+    return `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
 }
 
-// Initial count update based on existing boxes
+// Attach event listeners to buttons
+addBoxButton.addEventListener('click', addBox);
+removeBoxButton.addEventListener('click', removeBox);
+
+// Initial setup
 updateBoxCountDisplay();

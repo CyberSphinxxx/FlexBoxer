@@ -7,17 +7,23 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <h1 class="title">FlexBoxer</h1>
-    <p id="boxCountDisplay" class="count-display">Total Boxes: 0</p>
+    <header>
+        <h1 class="title">FlexBoxer</h1>
+        <p id="boxCountDisplay" class="count-display">Total Boxes: 0</p>
+    </header>
 
-    <div class="box-container" id="boxContainer">
-        <div class="box box1">Box 1</div>
-    </div>
+    <main>
+        <div class="box-container" id="boxContainer">
+            <div class="box">Box 1</div>
+        </div>
+    </main>
 
-    <div class="btn-container">
-        <button class="btn" onclick="addBox()">Add Box</button>
-        <button class="btn" onclick="removeBox()">Remove Box</button>
-    </div>
+    <footer>
+        <div class="btn-container">
+            <button class="btn" id="addBoxButton">Add Box</button>
+            <button class="btn" id="removeBoxButton">Remove Box</button>
+        </div>
+    </footer>
     
     <script src="script.js"></script>
 </body>
